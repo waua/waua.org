@@ -1,0 +1,63 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build:dev",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [],
+			"label": "npm: build:dev",
+			"detail": "cross-env NODE_ENV=development gulp"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"problemMatcher": [],
+			"label": "npm: build:prod",
+			"detail": "cross-env NODE_ENV=production gulp"
+		},
+		{
+			"type": "gulp",
+			"task": "build",
+			"group": {
+				"kind": "build",
+			},
+			"problemMatcher": [],
+			"label": "gulp: build"
+		},
+		{
+			"type": "npm",
+			"script": "debug",
+			"group": {
+				"kind": "test",
+			},
+			"problemMatcher": {
+                "severity": "error",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "error ",
+                        "file": 1
+                    },
+                    {
+                        "regexp": "\\((\\d+),(\\d+)\\):(.*)",
+                        "line": 1,
+                        "column": 2,
+                        "message": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+					"beginsPattern": "Using gulpfile",
+					"endsPattern": "[Browsersync] Serving files from"
+				}
+			},
+			"label": "npm: debug",
+            "promptOnClose": true,
+            "isBackground": true
+		}
+	]
+}

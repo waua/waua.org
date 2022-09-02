@@ -1,0 +1,21 @@
+@use 'templates/common';
+
+.list-table {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.list-qty {
+    text-align: right;
+}
+
+.list li {
+    margin-top: 0.3rem;
+}
+
+.donation {
+    margin: 1rem;
+    padding: 2rem;
+    background-color: #0057b7;
+    color: white;
+}

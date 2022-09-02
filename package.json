@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=development gulp build",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "debug": "cross-env NODE_ENV=development gulp serve"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.0",
+    "bootstrap": "^5.2.0",
+    "jquery": "^3.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "browser-sync": "^2.27.10",
+    "browserify": "^17.0.0",
+    "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-ejs": "^5.1.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-real-favicon": "^0.3.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulplog": "^2.0.0",
+    "html-minifier-terser": "^7.0.0",
+    "image-data-uri": "^2.0.1",
+    "sass": "^1.54.8",
+    "vinyl": "^2.2.1",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}

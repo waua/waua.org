@@ -1,0 +1,48 @@
+@use 'templates/common';
+
+body img {
+  width: 100%;
+  height: auto;
+}
+
+.front-message {
+  background: linear-gradient(rgba(0 0 0 / 60%), rgba(0 0 0 / 60%)), url("<%- include('images/destroyed-ukraine.jpg') %>");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  //background-attachment: fixed;
+  color: white;
+}
+
+.main-title {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { 
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .main-title {
+    font-size: 3rem;
+  }
+}
+
+.frontpage {
+  font-size: medium;
+}
+
+.frontpage li {
+  padding-bottom: 0.2rem;
+}

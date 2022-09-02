@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>UAWS | Ukrainian Association of Washington State</title>
+  <meta name="description" content="Official Page of Ukrainian Association of Washington State" />
+  <%- include('./templates/head.ejs') %>
+  <style><%- include('../generated/index.css') %></style>
+  <script><%- include('../generated/app.js') %></script>
+</head>
+
+<body>
+  <%- include('templates/nav.ejs') %>
+  <div class="container-fluid front-message text-center">
+    <div class="container py-5">
+      <div class="pb-5 display-1 text-center main-title">#STAND WITH UKRAINE</div>
+      <div class="pb-5 text-center">
+        <h2 class="mb-4">Our people are suffering</h2>
+        <h2 class="mb-4">Our families are devastated</h2>
+        <h2 class="mb-4">Our children are crying</h2>
+        <h2 class="mb-4">They need <b>OUR</b> help!</h2>
+        <h2 class="mb-4">They need <b>YOUR</b> help!</h2>
+      </div>
+      <div class="pb-4">
+        <a class="btn btn-warning btn-rounded" href="https://uaws.org/donate" target="_blank">
+          <h4 class="m-2">
+            <svg height="20" width="20"><%- include('../node_modules/@fortawesome/fontawesome-free/svgs/brands/paypal.svg') %></svg>
+            Donate with CreditCard or PayPal
+          </h4>
+        </a>
+      </div>
+      <a class="btn btn-warning btn-rounded" href="donate.html">
+        <h4 class="m-2">Donate in other ways</h4>
+      </a>
+    </div>
+  </div>
+  <div class="container section frontpage">
+    <h2 class="mb-0">Our Support Priorities</h2>
+    <div class="row">
+      <div class="col-12">
+        <img src="<%- include('images/nico-1170x530.jpg') %>" class="float-end support-image" alt="neonatal incubator">
+        <p>Since the Russia's invasion of Ukraine in 2014, the Association has been focused on raising awareness of the war in America and
+          providing medical and humanitarian aid to civilians, non-profit organizations and hospitals, wounded soldiers, and families of 
+          soldiers who died defending Ukraine. 
+        </p>
+
+        <ul>
+          <li>Deliver medical supplies to hospitals in Ukraine
+            <ul>
+              <li>Provide neonatal incubators for newborns</li>
+            </ul>
+          </li>          
+          <li>Provide civilian defenders with body armor</li>
+          <li>Support civilians with life-saving medicine</li>
+          <li>Help displaced families and orphans</li>
+        </ul>
+        <a href="projects.html">Read more about our projects</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section frontpage">
+    <hr/>
+    <div class="row">
+      <div class="col-12 col-md-6">
+      </div>
+      <div class="col-12 col-md-6">
+        <h2>Our Achievements</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <img src="<%- include('images/ukraine-warehouse.jpg') %>" class="float-start support-image" alt="neonatal incubator">
+        <p>
+          We are help wherever we can. So far, we have:
+        </p>
+        <ul>
+          <li>Gathered ~50 tons of medical and humanitarian aid for Ukraine</li>
+          <li>Organized 6 rallies to support Ukraine in Seattle</li>
+          <li>Raised support from US congressmen, senators, WA state governor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container section frontpage">
+    <hr/>
+    <h2>About Us</h2>
+    <div class="row">
+      <div class="col-12">
+        <img src="<%- include('images/ukraine-meeting.jpg') %>" class="float-end support-image" alt="neonatal incubator">
+        <p>Ukrainian Association of Washington State is a non-profit 501(c)(3) organization. The organization does not have paid employees -
+          all operations are based solely on volunteer support.
+        </p>
+        <p>
+          Since its foundation in 1971 the Association has organized numerous cultural and political events, sponsors Ukrainian culture 
+          organizations and programs, promotes awareness nd relations between US and Ukraine. Our largest programs include:
+        </p>
+        <ul>
+          <li>Annual Ukraine's Independence day celebration and annual birthday celebration of Ukrainian bard Taras Shevchenko</li>
+          <li>Organized Ukrainian language classes in UW in 1973 and continues to sponsor
+            <a href="https://slavic.washington.edu/funds/ukrainian-studies-endowment" target="_blank">Ukrainian Studies</a>
+          </li>
+          <li>Sponsors Ukrainian dance group <a href="https://www.barvinokseattle.org/" target="_blank">Barvinok</a> and chorus
+            <a href="https://www.facebook.com/Serpanok-Choir-X%D0%BE%D1%80-%D0%A1%D0%B5%D1%80%D0%BF%D0%B0%D0%BD%D0%BE%D0%BA-265732223468131/" target="_blank">Serpanok</a>
+          </li>
+        </ul>
+        <a href="about.html">Read more about us</a>
+      </div>
+    </div>
+  </div>
+  <%- include('templates/footer.ejs')  %> 
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title><%= name %> | Ukrainian Association of Washington State</title>
+  <meta name="description" content="<%= description %>" />
+
+  <script type="application/ld+json">
+    [{
+      "@context":"http://schema.org",
+      "@type":"Event",
+      "name":"<%= name %> ",
+      "description":"<%= description %> ",
+      "image":"<%= cover_rect_max %>",
+      "url":"<%= base_name %>.html",
+      "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+      "startDate":"<%= new Date(start_time).toJSON() %>",
+      "endDate":"<%= new Date(end_time).toJSON() %>",
+      "location":{
+        "@type":"Place",
+        "name":"Spreckles Temple Of Music, Golden Gate Park",
+        "description":"",
+        "url":"",
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"Spreckles Temple Of Music, Golden Gate Park",
+          "addressLocality":"San Francisco, CA",
+          "addressCountry":"United States"
+        },
+        "telephone":"",
+        "sameAs":""
+      },
+      "performer":"Organization"
+    }]
+  </script>
+<%- include('head.ejs') %>
+  <style>
+<%- include('../../generated/event.css') %>
+  </style>
+  <script>
+<%- include('../../generated/app.js') %>
+  </script>
+</head>
+
+<body>
+  <%- include('nav.ejs') %>
+  <div class="container">
+    <hr/>
+    <img class="img-fluid" src="<%= cover_rect_min %>" srcset="<%= cover_rect_srcset %>" alt="<%= name %> ">
+    <h2><%= name %></h2>
+    <h5 id="time" class="text-muted"><%= start %></h5>
+    <script>
+      const start_time = parseFloat('<%= start_time %>');
+      if (start_time && !isNaN(start_time)) {
+        $('#time').text(new Date(start_time).toLocaleString());
+      }
+    </script>
+    <% if (locals.location) { %>
+      <h5 class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURI(location) %>" target="_blank"><%= location %></a></h5>
+    <% } %>

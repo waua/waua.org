@@ -62,5 +62,6 @@ The ouptut in `prod` mode is optimized and minimized.
 
 Project site is [waua.github.io/waua.org/](https://waua.github.io/waua.org/). To publish, build and run:
 ```
-gulp build publishGhPages
+npm run build
+gulp publishGhPages
 ```

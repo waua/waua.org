@@ -31,6 +31,7 @@
     "gulp-scale-images": "^3.0.2",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-w3c-html-validator": "^5.1.3",
     "gulplog": "^2.0.0",
     "html-minifier-terser": "^7.0.0",
     "image-data-uri": "^2.0.1",

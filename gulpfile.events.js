@@ -1,7 +1,7 @@
 const rect_variants = [384, 768, 1024, 1536, 2048];
 const square_variants = [384, 512, 768, 1024];
 
-const { src, dest } = require('gulp');
+const { src, dest, task } = require('gulp');
 const ejs = require("gulp-ejs");
 const gulpif = require('gulp-if');
 const htmlmin = require('gulp-htmlmin');
@@ -78,7 +78,7 @@ function generateImageTasks(pathFunc, suffix, widths) {
   );
 }
 
-exports.generateEventImages = function () {
+function generateEventImages() {
   const rect_img_tasks = generateImageTasks(
     pathFunc = e => e.cover_rect,
     suffix = '.rect',
@@ -94,7 +94,7 @@ exports.generateEventImages = function () {
   return merge(rect_img_tasks.concat(square_img_tasks));
 };
 
-exports.generateEvents = function () {
+function generateEvents() {
   const template_tasks = events().map((e) =>
     src(path.join('app/events/', e.template))
       .pipe(ejs(e, { async: false }))
@@ -111,3 +111,6 @@ exports.generateEvents = function () {
 
   return merge(template_tasks);
 };
+
+task('generateEventImages', generateEventImages);
+task('generateEvents', generateEvents);

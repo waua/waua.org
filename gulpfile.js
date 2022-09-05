@@ -1,6 +1,6 @@
 const { fileLoader, is_dev, is_prod } = require('./gulpfile.utils');
-const events = require('./gulpfile.events');
-const favicons = require('./gulpfile.favicons');
+const { events } = require('./gulpfile.events');
+const { } = require('./gulpfile.favicons');
 
 const { dest, parallel, series, src, watch } = require('gulp');
 const browserify = require('browserify');
@@ -21,7 +21,7 @@ const browserSync = require('browser-sync').create();
 ejs.__EJS__.fileLoader = fileLoader;
 
 function clean() {
-  return src(['dist/', 'generated/'], { read: false, allowEmpty: true })
+  return src(['dist/', 'generated/', '!**/.gitkeep'], { read: false, allowEmpty: true })
     .pipe(gclean({ force: true }));
 }
 
@@ -65,7 +65,7 @@ function statics() {
 
 function templates() {
   return src('app/*.ejs')
-    .pipe(ejs({ events: events.events() }, { async: false }))
+    .pipe(ejs({ events: events() }, { async: false }))
     .pipe(rename({ extname: '.html' }))
     .pipe(gulpif(is_prod, htmlmin({
       collapseWhitespace: true,
@@ -78,14 +78,14 @@ function templates() {
 }
 
 const build = parallel(
-  favicons.generateFavicon,
+  'generateFavicon',
   series(
     parallel(
       styles,
       javascript,
       statics,
-      events.generateEventImages,
-      events.generateEvents),
+      'generateEventImages',
+      'generateEvents'),
     templates));
 
 function serve() {
@@ -99,7 +99,7 @@ function serve() {
 exports.build = build;
 exports.clean = clean;
 exports.default = build;
-exports.events = parallel(events.generateEventImages, events.generateEvents);
+exports.events = parallel('generateEventImages', 'generateEvents');
 exports.js = javascript;
 exports.serve = series(build, serve);
 exports.styles = styles;

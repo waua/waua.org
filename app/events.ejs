@@ -30,7 +30,7 @@
           <a href="<%= e.base_name %>.html">
             <h3><%= e.name %></h3>
           </a>
-          <h5 id="time" class="text-muted"><%= e.start %></h5>
+          <h5 class="text-muted"><%= e.start %></h5>
           <% if (e.location) { %>
             <h5 class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURI(e.location) %>" target="_blank"><%= e.location %></a></h5>
           <% } %>

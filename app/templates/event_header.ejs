@@ -46,11 +46,11 @@
 <body>
   <%- include('nav.ejs') %>
   <div class="container">
-    <a href="events.html"><h5 class="my-3" ><< Back to Events</h5></a>
+    <a href="events.html"><h5 class="my-3" >&lt;&lt; Back to Events</h5></a>
     <hr/>
     <h2><%= name %></h2>
     <h5 id="time" class="text-muted"><%= start %></h5>
     <% if (locals.location) { %>
       <h5 class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURI(location) %>" target="_blank"><%= location %></a></h5>
     <% } %>
-    <img class="img-fluid my-2" src="<%= cover_rect_min %>" srcset="<%= cover_rect_srcset %>" alt="<%= name %> ">
+    <img class="img-fluid my-2" src="<%= cover_rect_min %>" srcset="<%= cover_rect_srcset %>" sizes="100vw" alt="<%= name %> ">

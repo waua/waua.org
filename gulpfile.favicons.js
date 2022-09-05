@@ -1,3 +1,4 @@
+const {task } = require('gulp');
 const realFavicon = require ('gulp-real-favicon');
 const fs = require('fs');
 const log = require('gulplog');
@@ -10,7 +11,7 @@ var FAVICON_DATA_FILE = 'generated/faviconData.json';
 // You should run it at least once to create the icons. Then,
 // you should run it whenever RealFaviconGenerator updates its
 // package (see the check-for-favicon-update task below).
-exports.generateFavicon = function(done) {
+function generateFavicon (done) {
 	if (is_dev && fs.existsSync('dist/favicon.ico')) {
 		log.info(`Skipping favicon generation: is_dev=${is_dev}`);
 		done();
@@ -85,7 +86,7 @@ exports.generateFavicon = function(done) {
 // released a new Touch icon along with the latest version of iOS).
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
-exports.checkForFavIconUpdate = function(done) {
+function checkForFavIconUpdate(done) {
 	var currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
 	realFavicon.checkForUpdates(currentVersion, function(err) {
 		if (err) {
@@ -93,3 +94,6 @@ exports.checkForFavIconUpdate = function(done) {
 		}
 	});
 };
+
+task('checkForFavIconUpdate', checkForFavIconUpdate);
+task('generateFavicon', generateFavicon);

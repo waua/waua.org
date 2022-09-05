@@ -15,6 +15,8 @@ const sass = require('gulp-sass')(require('sass'));
 const source = require('vinyl-source-stream');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
+const ghpages = require('gh-pages');
+
 
 const browserSync = require('browser-sync').create();
 
@@ -96,11 +98,16 @@ function serve() {
   watch("app/**/*").on('change', series(build, browserSync.reload));
 }
 
+function publishGhPages(cb) {
+  ghpages.publish('dist', cb)
+}
+
 exports.build = build;
 exports.clean = clean;
 exports.default = build;
 exports.events = parallel('generateEventImages', 'generateEvents');
 exports.js = javascript;
+exports.publishGhPages = publishGhPages;
 exports.serve = series(build, serve);
 exports.styles = styles;
 exports.templates = templates;

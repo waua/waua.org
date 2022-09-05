@@ -7,6 +7,7 @@ CALL yarn add --dev ^
   browserify ^
   cross-env ^
   flat-map ^
+  gh-pages ^
   gulp ^
   gulp-babel ^
   gulp-clean ^

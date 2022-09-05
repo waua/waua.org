@@ -1,7 +1,7 @@
 -
-  name: 31st Independence Day of Ukraine – 2022
-  start: 27 Aug 2022 12:00:00 PDT
-  end: 27 Aug 2022 22:00:00 PDT
+  name: "31st Independence Day of Ukraine – 2022"
+  start: 27 Aug 2022 12:00 PDT
+  end: 27 Aug 2022 22:00 PDT
   location: Liberty Park, 1101 Bronson Way N, Renton, WA 98057
   template: 2022-08-27_Independence_Day.ejs
   cover_rect: 2022-08-27_Independence_Day_rect.jpg
@@ -9,3 +9,25 @@
   description: |-
     Join us and spread the word about our official annual celebration of Ukraine's Independence Day!
     We are extremely excited to invite you to celebrate Ukraine's Independence Day with an unforgettable concert and our special guest, one of the most well-known Ukrainian rock bands, SKAI.
+
+-
+  name: "\"Winter On Fire\". Benefit For Ukraine"
+  start: 18 Jun 2022 18:00 PDT
+  end: 18 Jun 2022 21:00 PDT
+  location: SIFF Cinema Egyptian, 805 E Pine St, Seattle, WA 98122
+  template: 2022-06-18_Winter_on_fire.ejs
+  cover_rect: 2022-06-18_Winter_on_fire_rect.jpg
+  cover_square: 2022-06-18_Winter_on_fire_square.webp
+  description: |-
+    The iconic documentary is about one of the most important moments in Ukrainian history. Meet the filmmaker. Proceeds will be donated to aid Ukraine. In February 2014, Ukraine’s Maidan revolution
+
+-
+  name: "\"Bad Roads\". Ukrainian Movie Screening Fundraiser"
+  start: 20 May 2022 18:00 PDT
+  end: 20 May 2022 21:00 PDT
+  location: Guggenheim Hall (GUG), 3940 Benton Ln NE, Seattle, WA 98105
+  template: 2022-05-20_Bad_Roads.ejs
+  cover_rect: 2022-05-20_Bad_Roads_rect.png
+  cover_square: 2022-05-20_Bad_Roads_square.png
+  description: |-
+    Ukrainian Association of Washington State, Hong Kong Democracy & Human Rights Association at UW, and Reason8films are proud to present to you a screening of the Ukrainian movie “Bad Roads” – a 2021 Oscar submission from Ukraine for the Best International Film. Join us to watch an omnibus drama about fraught encounters in Ukraine’s conflict zones.

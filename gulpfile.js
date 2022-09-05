@@ -65,7 +65,7 @@ function statics() {
 
 function templates() {
   return src('app/*.ejs')
-    .pipe(ejs({ events: events.events }, { async: false }))
+    .pipe(ejs({ events: events.events() }, { async: false }))
     .pipe(rename({ extname: '.html' }))
     .pipe(gulpif(is_prod, htmlmin({
       collapseWhitespace: true,

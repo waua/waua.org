@@ -18,12 +18,15 @@ const { fileLoader, is_prod } = require('./gulpfile.utils');
 const imageSource = (base_name, suffix, size) => base_name + suffix + `.${size}w.webp`;
 const imageSourceSet = (base_name, suffix, sizes) => sizes.map(size => imageSource(base_name, suffix, size) + ` ${size}w`).join(', ');
 
+const addressRegex = /((?<name>.+),\s*)?((?<street>.+),\s*)((?<city>[\w\s]+),\s*)((?<state>\w{2}),?\s*)(?<zip>\d{5})\s*/
+
 function templateParams(ev) {
   const e = structuredClone(ev);
   e.base_name = path.basename(e.template, path.extname(e.template));
   e.html_name = e.base_name + '.html';
   e.start_time = Date.parse(e.start);
   e.end_time = Date.parse(e.end);
+  e.address = addressRegex.exec(e.location).groups;
   e.cover_rect_srcset = imageSourceSet(e.base_name, '.rect', rect_variants);
   e.cover_rect_min = imageSource(e.base_name, '.rect', Math.min(...rect_variants));
   e.cover_rect_max = imageSource(e.base_name, '.rect', Math.max(...rect_variants));
@@ -35,18 +38,22 @@ function templateParams(ev) {
 
 ejs.__EJS__.fileLoader = fileLoader;
 
-const events = yaml
-  .load(fs.readFileSync('app/events/events.yaml', 'utf8'))
-  .map(templateParams);
+function events() {
+  const events = yaml
+    .load(fs.readFileSync('app/events/events.yaml', 'utf8'))
+    .map(templateParams);
 
-for (const e of events) {
-  e.events = events;
+  for (const e of events) {
+    e.events = events;
+  }
+
+  return events;
 }
 
 exports.events = events;
 
 function generateImageTasks(pathFunc, suffix, widths) {
-  return events.map(e =>
+  return events().map(e =>
     src('./app/events/' + pathFunc(e))
       .pipe(rename({
         dirname: '.',           // move to the top directory
@@ -88,7 +95,7 @@ exports.generateEventImages = function () {
 };
 
 exports.generateEvents = function () {
-  const template_tasks = events.map((e) =>
+  const template_tasks = events().map((e) =>
     src(path.join('app/events/', e.template))
       .pipe(ejs(e, { async: false }))
       .pipe(rename({ extname: '.html', dirname: '.' }))

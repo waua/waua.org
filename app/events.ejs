@@ -20,23 +20,17 @@
     <hr/>
     <h2>Events</h2>
     <% events.forEach(e => { %>
-      <div class="row">
-        <div class="col-2">
+      <div class="row my-3">
+        <div class="col-4 col-md-3 col-lg-2">
           <a href="<%= e.base_name %>.html">
-            <img class="img-fluid" src="<%= e.cover_square_default %>" alt="<%= e.name %>" srcset="<%= e.cover_square_srcset %>">
+            <img class="img-fluid" src="<%= e.cover_square_min %>" alt="<%= e.name %>" srcset="<%= e.cover_square_srcset %>" sizes="20vw">
           </a>
         </div>
-        <div class="col-10">
+        <div class="col-8 col-md-9 col-lg-10">
           <a href="<%= e.base_name %>.html">
             <h3><%= e.name %></h3>
           </a>
           <h5 id="time" class="text-muted"><%= e.start %></h5>
-          <script>
-            const start_time = parseFloat('<%= e.start_time %>');
-            if (start_time && !isNaN(start_time)) {
-              $('#time').text(new Date(start_time).toLocaleString());
-            }
-          </script>
           <% if (e.location) { %>
             <h5 class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURI(e.location) %>" target="_blank"><%= e.location %></a></h5>
           <% } %>

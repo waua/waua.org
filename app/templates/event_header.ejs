@@ -10,8 +10,8 @@
     [{
       "@context":"http://schema.org",
       "@type":"Event",
-      "name":"<%= name %> ",
-      "description":"<%= description %> ",
+      "name":"<%= name %>",
+      "description":"<%= description %>",
       "image":"<%= cover_rect_max %>",
       "url":"<%= base_name %>.html",
       "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
@@ -19,13 +19,13 @@
       "endDate":"<%= new Date(end_time).toJSON() %>",
       "location":{
         "@type":"Place",
-        "name":"Spreckles Temple Of Music, Golden Gate Park",
-        "description":"",
-        "url":"",
+        "name":"<%= address.name ? address.name : '' %>",
         "address":{
           "@type":"PostalAddress",
-          "streetAddress":"Spreckles Temple Of Music, Golden Gate Park",
-          "addressLocality":"San Francisco, CA",
+          "streetAddress":"<%= address.street ? address.street : '' %>",
+          "addressLocality": "<%= address.city %>",
+          "addressRegion": "<%= address.state %>",
+          "postalCode": "<%= address.zip %>",
           "addressCountry":"United States"
         },
         "telephone":"",
@@ -46,16 +46,11 @@
 <body>
   <%- include('nav.ejs') %>
   <div class="container">
+    <a href="events.html"><h5 class="my-3" ><< Back to Events</h5></a>
     <hr/>
-    <img class="img-fluid" src="<%= cover_rect_min %>" srcset="<%= cover_rect_srcset %>" alt="<%= name %> ">
     <h2><%= name %></h2>
     <h5 id="time" class="text-muted"><%= start %></h5>
-    <script>
-      const start_time = parseFloat('<%= start_time %>');
-      if (start_time && !isNaN(start_time)) {
-        $('#time').text(new Date(start_time).toLocaleString());
-      }
-    </script>
     <% if (locals.location) { %>
       <h5 class="text-muted"><a href="https://www.google.com/maps/search/?api=1&query=<%= encodeURI(location) %>" target="_blank"><%= location %></a></h5>
     <% } %>
+    <img class="img-fluid my-2" src="<%= cover_rect_min %>" srcset="<%= cover_rect_srcset %>" alt="<%= name %> ">
